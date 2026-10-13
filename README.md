@@ -1,5 +1,7 @@
 # Super-resolution of Sentinel-2 imagery with diffusion and GAN models and its impact on cloud and cloud-shadow segmentation
 
+![Graphical abstract](docs/graphical_abstract.png)
+
 Code for the evaluation of two super-resolution (SR) models of eight-band Sentinel-2 imagery, the diffusion model **EDiffSR** and the GAN **ESRGAN** (both trained on Sen2VEN&mu;S, 10 m &rarr; 5 m),
 and for the downstream experiment: cloud and cloud-shadow segmentation (DeepLabV3+ / EfficientNet-B0) on cloudy Sentinel-2 L1C patches with the original patches, bicubic interpolation, the SR results and 16-channel concatenations as inputs.
 
@@ -29,7 +31,7 @@ A GPU is required for the SR inference (EDiffSR makes 100 reverse-SDE steps per 
 
 ## Data and model weights
 
-The Sen2VEN&mu;S dataset is public ([doi:10.5281/zenodo.6514159](https://doi.org/10.5281/zenodo.6514159)). **The cloudy Sentinel-2 patches and the weights of the SR models are available on request from the author of the paper** (Nikita Belyakov, Skoltech, Nikita.Belyakov@skoltech.ru).
+The Sen2VEN&mu;S dataset is public ([doi:10.5281/zenodo.6514159](https://doi.org/10.5281/zenodo.6514159)). **The cloudy Sentinel-2 patches and the weights of the SR models are available on request from the author of the paper.**
 
 Expected layout (see `s2sr/paths.py`; every path can be set with an environment variable):
 
@@ -71,5 +73,3 @@ All inputs are scored on the common 256 &times; 256 grid.
 * EDiffSR sampling is stochastic (the scripts fix the seed; GPU non-determinism remains).
 * The ESRGAN generator is a &times;4 network; its output is averaged over 2 &times; 2 blocks to the 5 m grid, so that both models give 8 bands on the same grid. The checkpoints expect the input divided by 255.
 * LPIPS and FID download the AlexNet / Inception weights on the first run.
-
-Third-party code and data licenses are listed in [NOTICE.md](NOTICE.md).
