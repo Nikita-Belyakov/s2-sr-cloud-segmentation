@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+logs/
+work/
+data/
+weights/
+configs/env.sh
+*.pth
+*.pt
+*.npz
+*.npy
+*.tif

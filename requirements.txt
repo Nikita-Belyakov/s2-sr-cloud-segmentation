@@ -1,0 +1,38 @@
+# Python 3.10. Versions are those of the environment in which the paper's results were produced.
+#
+# PyTorch: install the build that matches your CUDA first, e.g.
+#   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0
+torchvision==0.21.0
+
+# numerics, images, tables
+numpy==1.24.3
+scipy==1.14.1
+scikit-learn==1.6.1
+pandas==2.2.3
+pillow==10.2.0
+tifffile==2024.9.20
+opencv-python-headless==4.10.0.84
+matplotlib==3.9.2
+tqdm==4.66.5
+
+# super-resolution (EDiffSR inference in s2sr/ediffsr, training in ediffsr/)
+einops==0.8.0
+albumentations==1.4.17     # training script of EDiffSR (ediffsr/)
+torchsummary==1.5.1        # training script of EDiffSR
+pyyaml==6.0.2              # configs
+
+# metrics
+torchmetrics==0.11.4        # PSNR, SSIM, FID
+torch-fidelity==0.3.0       # Inception features of the FID
+lpips==0.1.4                # LPIPS (AlexNet)
+erqa==1.1.2                 # ERQA (Kirillova et al.), https://github.com/msu-video-group/erqa
+
+# segmentation
+segmentation-models-pytorch==0.3.4
+timm==0.9.7
+
+# optional
+rasterio==1.4.1             # only for GeoTIFF tiling in s2sr/ediffsr (not used by the scripts of the paper)
+python-pptx==1.0.2          # src/graphical_abstract/make_ga_pptx.py
+lxml                        # same
